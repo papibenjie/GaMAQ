@@ -43,18 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NodeGA\NodeEvaluator.cs" />
-    <Compile Include="NodeGA\NodeGenerator.cs" />
-    <Compile Include="NodeGA\NodeMutator.cs" />
-    <Compile Include="NodeGA\NodeReproductor.cs" />
-    <Compile Include="NodeGA\NodeSelector.cs" />
-    <Compile Include="Nodes\AddNode.cs" />
-    <Compile Include="Nodes\ConstNode.cs" />
-    <Compile Include="Nodes\DivNode.cs" />
-    <Compile Include="Nodes\MulNode.cs" />
-    <Compile Include="Nodes\Node.cs" />
-    <Compile Include="Nodes\SubNode.cs" />
-    <Compile Include="Nodes\Tree.cs" />
+    <Compile Include="AddNode.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
