@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace NodeGA
 {
-    class AddNode<Func<double, double, double>>
+    class ConstNode : Node
     {
+        public ConstNode(float val) : base(val.ToString(), v => val)
+        {
+
+        }
     }
 }

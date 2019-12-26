@@ -43,10 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNode.cs" />
+    <Compile Include="ConstNode.cs" />
+    <Compile Include="NodeGenerator.cs" />
     <Compile Include="Node.cs" />
+    <Compile Include="OperationNode.cs" />
+    <Compile Include="OperationEnum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tree.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
