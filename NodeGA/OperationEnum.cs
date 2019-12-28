@@ -37,13 +37,14 @@ namespace NodeGA
 
         public override string ToString() => Name;
 
-        public static IEnumerable<OperationEnum> GetAll<OperationEnum>()
+        public static List<OperationEnum> GetAll()
         {
             var fields = typeof(OperationEnum).GetFields(BindingFlags.Public |
                                                 BindingFlags.Static |
                                                 BindingFlags.DeclaredOnly);
-
-            return fields.Select(f => f.GetValue(null)).Cast<OperationEnum>();
+  
+            IEnumerable<object> val = fields.Select(f => f.GetValue(null));
+            return val.Cast<OperationEnum>().ToList();
         }
 
         public override bool Equals(object obj)

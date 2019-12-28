@@ -26,19 +26,25 @@ namespace NodeGA
 
         public Tree Generate()
         {
+            currentDepth = 0;
+            return _generate();
+        }
+
+        private Tree _generate()
+        {
             currentDepth++;
             Node node;
-            if(currentDepth < MinDepth)
+            if (currentDepth < MinDepth)
             {
                 node = GenerateOperationNode();
             }
-            else if(currentDepth > MaxDepth)
+            else if (currentDepth > MaxDepth)
             {
                 node = GenerateConstNode();
             }
             else
             {
-                if(rdm.NextDouble() < 0.5)
+                if (rdm.NextDouble() < 0.5)
                 {
                     node = GenerateOperationNode();
                 }
@@ -57,9 +63,9 @@ namespace NodeGA
 
         private Node GenerateOperationNode()
         {
-            Node node = OperationEnum.GetAll<OperationEnum>().ToList()[rdm.Next(OperationEnum.GetAll<OperationEnum>().Count())].ToNode();
-            node.Children.Add(Generate().Root);
-            node.Children.Add(Generate().Root);
+            Node node = OperationEnum.GetAll().ToList()[rdm.Next(OperationEnum.GetAll().Count())].ToNode();
+            node.Children.Add(_generate().Root);
+            node.Children.Add(_generate().Root);
             return node;
         }
     }

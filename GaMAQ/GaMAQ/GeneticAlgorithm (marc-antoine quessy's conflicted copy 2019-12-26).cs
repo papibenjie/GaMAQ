@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GaMAQ
 {
-    public class GeneticAlgorithm<T>
+    /// <summary>
+    /// Main class of GA
+    /// </summary>
+    /// <typeparam name="T">The type of the dna to evolve</typeparam>
+    class GeneticAlgorithm<T>
     {
         private IEvaluator<T> evaluator;
         private IGenerator<T> generator;
@@ -14,20 +18,33 @@ namespace GaMAQ
 
         private Environment<T> environment;
 
+        /// <summary>
+        /// GA constructor
+        /// </summary>
+        /// <param name="evaluator">GA evaluator</param>
+        /// <param name="generator">GA generator</param>
+        /// <param name="selector">GA selector</param>
         public GeneticAlgorithm(IEvaluator<T> evaluator, IGenerator<T> generator, ISelector<T> selector)
         {
-            this.evaluator = evaluator;
             this.generator = generator;
-            this.selector = selector;
-
             environment = new Environment<T>(selector, evaluator);
         }
 
+        /// <summary>
+        /// Get the best individual in the population (highest fitness) 
+        /// </summary>
+        /// <returns>The best individual</returns>
         public Individual<T> GetBest()
         {
             return environment.Population.GetBest();
         }
 
+        /// <summary>
+        /// Generate the initial population
+        /// </summary>
+        /// <param name="popSize">The size of the population</param>
+        /// <param name="mutator">The base mutator</param>
+        /// <param name="reproductor">The base reproductor</param>
         public void Initialize(int popSize, IMutator<T> mutator, IReproductor<T> reproductor)
         {
             for (int i = 0; i < popSize; i++)
@@ -39,6 +56,9 @@ namespace GaMAQ
             environment.EvaluateAll();
         }
 
+        /// <summary>
+        /// Perform one GA step
+        /// </summary>
         public void NextStep()
         {
             environment.MutateAll();

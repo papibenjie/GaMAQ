@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{21A2C93F-C128-408A-AE50-8CB296BED697}</ProjectGuid>
+    <ProjectGuid>{E97524F3-AC8F-4C25-9497-E627C5F0F2A2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>NodeGA</RootNamespace>
-    <AssemblyName>NodeGA</AssemblyName>
+    <RootNamespace>GaMAQ</RootNamespace>
+    <AssemblyName>GaMAQ</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,27 +45,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConstNode.cs" />
-    <Compile Include="NodeEvaluator.cs" />
-    <Compile Include="NodeGenerator.cs" />
-    <Compile Include="Node.cs" />
-    <Compile Include="NodeMutator.cs" />
-    <Compile Include="NodeReproductor.cs" />
-    <Compile Include="NodeSelector.cs" />
-    <Compile Include="OperationNode.cs" />
-    <Compile Include="OperationEnum.cs" />
+    <Compile Include="BoolGA\BoolEvaluator.cs" />
+    <Compile Include="BoolGA\BoolGenerator.cs" />
+    <Compile Include="BoolGA\BoolMutator.cs" />
+    <Compile Include="BoolGA\BoolReproductor.cs" />
+    <Compile Include="GaMAQ\Environment.cs" />
+    <Compile Include="GaMAQ\GeneticAlgorithm.cs" />
+    <Compile Include="GaMAQ\IEvaluator.cs" />
+    <Compile Include="GaMAQ\IGenerator.cs" />
+    <Compile Include="ImageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageViewer.Designer.cs">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GaMAQ\IMutator.cs" />
+    <Compile Include="GaMAQ\Individual.cs" />
+    <Compile Include="GaMAQ\IReproductor.cs" />
+    <Compile Include="GaMAQ\ISelector.cs" />
+    <Compile Include="GaMAQ\Population.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tree.cs" />
+    <Compile Include="BoolGA\BoolSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GaMAQ\GaMAQ.csproj">
-      <Project>{e97524f3-ac8f-4c25-9497-e627c5f0f2a2}</Project>
-      <Name>GaMAQ</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="ImageViewer.resx">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
