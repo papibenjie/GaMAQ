@@ -8,7 +8,7 @@ namespace NodeGA
 {
     class ConstNode : Node
     {
-        public ConstNode(float val) : base(val.ToString(), v => val)
+        public ConstNode(int val) : base(val.ToString(), v => val)
         {
 
         }

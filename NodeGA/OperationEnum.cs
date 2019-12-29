@@ -22,9 +22,9 @@ namespace NodeGA
 
         public string Name { get; private set; }
 
-        public Func<float[], float> Func { get; private set; }
+        public Func<int[], int> Func { get; private set; }
 
-        public OperationEnum(string name, Func<float[], float> func)
+        public OperationEnum(string name, Func<int[], int> func)
         {
             Name = name;
             Func = func;

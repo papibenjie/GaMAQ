@@ -11,12 +11,12 @@ namespace NodeGA
     {
         public int MaxDepth { get; set; }
         public int MinDepth { get; set; }
-        public List<float> PossibleConst { get; set; }
+        public List<int> PossibleConst { get; set; }
 
         private int currentDepth = 0;
         private Random rdm = new Random();
 
-        public NodeGenerator(int minDepth, int maxDepth, List<float> possibleConst)
+        public NodeGenerator(int minDepth, int maxDepth, List<int> possibleConst)
         {
             MaxDepth = maxDepth;
             MinDepth = minDepth;

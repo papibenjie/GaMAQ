@@ -9,7 +9,7 @@ namespace NodeGA
 {
     class NodeMutator : IMutator<Tree>
     {
-        public List<float> PossibleConst { get; set; } = new List<float>();
+        public List<int> PossibleConst { get; set; } = new List<int>();
         public List<OperationEnum> PossibleOperation { get; set; } = new List<OperationEnum>();
         public IGenerator<Tree> Generator { get; set; }
 
@@ -18,7 +18,7 @@ namespace NodeGA
 
         private Random rdm = new Random();
 
-        public NodeMutator(List<float> possibleConst, List<OperationEnum> possibleOperation, IGenerator<Tree> generator, float rate, float hardRate)
+        public NodeMutator(List<int> possibleConst, List<OperationEnum> possibleOperation, IGenerator<Tree> generator, float rate, float hardRate)
         {
             PossibleConst = possibleConst;
             PossibleOperation = possibleOperation;
@@ -41,7 +41,7 @@ namespace NodeGA
                     dna.ReplaceNodes(node, PossibleOperation[rdm.Next(PossibleOperation.Count)].ToNode());
                 }
             }
-            if (rdm.NextDouble() < HardRate);
+            if (rdm.NextDouble() < HardRate)
             {
                 List<Node> nodes = dna.GetNodes();
                 Node node = nodes[rdm.Next(nodes.Count)];

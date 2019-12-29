@@ -24,7 +24,17 @@ namespace NodeGA
             {
                 return 0;
             }
-            return 1 / (Math.Abs(dna.Compute() - Target) + 1) * Math.Abs(MaxNodes - dna.GetNodes().Count) / 10;
+            try
+            {
+                
+                double val = 1 / (Math.Abs(dna.Compute() - Target) + 1) / (dna.GetNodes().Count / (float)MaxNodes);
+                //Console.WriteLine(val);
+                return val;
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }

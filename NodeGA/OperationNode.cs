@@ -11,7 +11,7 @@ namespace NodeGA
     {
         //------------------------------------------------
 
-        public OperationNode(string name, Func<float[], float> func) : base(name, func)
+        public OperationNode(string name, Func<int[], int> func) : base(name, func)
         {
 
         }

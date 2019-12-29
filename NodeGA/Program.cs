@@ -11,20 +11,18 @@ namespace NodeGA
     {
         static void Main(string[] args)
         {
-            List<float> possibleConst = new List<float> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            List<int> possibleConst = new List<int> { 1,5,10, 50};
 
-            NodeEvaluator evaluator = new NodeEvaluator(57, 25);
-            NodeGenerator generator = new NodeGenerator(3, 5, possibleConst);
-            NodeMutator mutator = new NodeMutator(possibleConst, OperationEnum.GetAll(), new NodeGenerator(1, 3, possibleConst), 0.05f, 0.005f); ;
+            NodeEvaluator evaluator = new NodeEvaluator(124, 50);
+
+            NodeGenerator generator = new NodeGenerator(3, 6, possibleConst);
+            NodeMutator mutator = new NodeMutator(possibleConst, OperationEnum.GetAll(), new NodeGenerator(1, 5, possibleConst), 0.02f, 0.003f); ;
             NodeReproductor reproductor = new NodeReproductor();
             NodeSelector selector = new NodeSelector();
 
             GeneticAlgorithm<Tree> GA = new GeneticAlgorithm<Tree>(evaluator, generator, selector);
 
-            GA.Initialize(100, mutator, reproductor);
-
-            Tree tree1 = generator.Generate();
-            Tree tree2 = generator.Generate();
+            GA.Initialize(150, mutator, reproductor);
 
             for (int i = 0; i < 100000; i++)
             {

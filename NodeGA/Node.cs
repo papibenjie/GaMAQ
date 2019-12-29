@@ -8,7 +8,7 @@ namespace NodeGA
 {
     public class Node
     {
-        public Func<float[], float> Func { get; set; }
+        public Func<int[], int> Func { get; set; }
         public string Name { get; set; } = "NONAME";
         public int ID = 0;
 
@@ -16,7 +16,7 @@ namespace NodeGA
 
         public List<Node> Children { get; set; } = new List<Node>();
 
-        public Node(string name, Func<float[], float> func)
+        public Node(string name, Func<int[], int> func)
         {
             Func = func;
             Name = name;
@@ -24,9 +24,9 @@ namespace NodeGA
             lastID++;
         }
 
-        public float Compute()
+        public int Compute()
         {
-            float[] vals = Children.Select(n => n.Compute()).ToArray();
+            int[] vals = Children.Select(n => n.Compute()).ToArray();
             return Func(vals);
         }
 
